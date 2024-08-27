@@ -6,13 +6,6 @@ import (
 	"os/exec"
 )
 
-func assertOrExit(condition bool, errorMessage string) {
-	if !condition {
-		log.Fatalf("Error: %s", errorMessage)
-		os.Exit(1)
-	}
-}
-
 func requireExecutable(executable string) string {
 	path, err := exec.LookPath(executable)
 	if err != nil {

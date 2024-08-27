@@ -18,7 +18,10 @@ func handleGoProject() {
 
 	goCmd.Parse(os.Args[2:])
 
-	assertOrExit(*moduleName != "", "Module is required.")
+	if *moduleName != "" {
+		log.Fatal("-module is a required param. Use flag -help for more information")
+		os.Exit(1)
+	}
 
 	cwd, err := os.Getwd()
 	if err != nil {
